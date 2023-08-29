@@ -1,6 +1,6 @@
 package args
 
-import "github.com/insolar/vanilla/reflectkit"
+import "github.com/soverenio/vanilla/reflectkit"
 
 func IsNil(v interface{}) bool {
 	return reflectkit.IsNil(v)

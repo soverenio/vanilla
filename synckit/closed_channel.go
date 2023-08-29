@@ -1,6 +1,6 @@
 package synckit
 
-import "github.com/insolar/vanilla/throw"
+import "github.com/soverenio/vanilla/throw"
 
 type SignalChannel = <-chan struct{}
 

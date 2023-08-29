@@ -4,7 +4,7 @@ import (
 	"math"
 	"math/bits"
 
-	"github.com/insolar/vanilla/args"
+	"github.com/soverenio/vanilla/args"
 )
 
 // PathBuilder allows to build a merkle-proof by a linear hashing log produced by StackedCalculator.
@@ -161,7 +161,6 @@ const StubNodeIndex = 0
 // (isRight) indicates position of this entry for a hashing operation. Either left or right.
 //
 // NB! Leaf index is [0, leafCount-1], node index is [1, leafCount+N], node index = 0 means stub value.
-//
 type PathEntryFunc func(index uint, isLeaf, isRight bool)
 
 // For the given (index) WalkFor will call (nodeFn) for each level of tree that has to be included into a merkle-proof, starting from leafs.

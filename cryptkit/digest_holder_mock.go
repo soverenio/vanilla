@@ -9,7 +9,7 @@ import (
 	mm_time "time"
 
 	"github.com/gojuno/minimock/v3"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 // DigestHolderMock implements DigestHolder
@@ -151,7 +151,7 @@ func (mmAsByteString *mDigestHolderMockAsByteString) Return(b1 longbits.ByteStri
 	return mmAsByteString.mock
 }
 
-//Set uses given function f to mock the DigestHolder.AsByteString method
+// Set uses given function f to mock the DigestHolder.AsByteString method
 func (mmAsByteString *mDigestHolderMockAsByteString) Set(f func() (b1 longbits.ByteString)) *DigestHolderMock {
 	if mmAsByteString.defaultExpectation != nil {
 		mmAsByteString.mock.t.Fatalf("Default expectation is already set for the DigestHolder.AsByteString method")
@@ -309,7 +309,7 @@ func (mmCopyTo *mDigestHolderMockCopyTo) Return(i1 int) *DigestHolderMock {
 	return mmCopyTo.mock
 }
 
-//Set uses given function f to mock the DigestHolder.CopyTo method
+// Set uses given function f to mock the DigestHolder.CopyTo method
 func (mmCopyTo *mDigestHolderMockCopyTo) Set(f func(p []byte) (i1 int)) *DigestHolderMock {
 	if mmCopyTo.defaultExpectation != nil {
 		mmCopyTo.mock.t.Fatalf("Default expectation is already set for the DigestHolder.CopyTo method")
@@ -524,7 +524,7 @@ func (mmEquals *mDigestHolderMockEquals) Return(b1 bool) *DigestHolderMock {
 	return mmEquals.mock
 }
 
-//Set uses given function f to mock the DigestHolder.Equals method
+// Set uses given function f to mock the DigestHolder.Equals method
 func (mmEquals *mDigestHolderMockEquals) Set(f func(other DigestHolder) (b1 bool)) *DigestHolderMock {
 	if mmEquals.defaultExpectation != nil {
 		mmEquals.mock.t.Fatalf("Default expectation is already set for the DigestHolder.Equals method")
@@ -724,7 +724,7 @@ func (mmFixedByteSize *mDigestHolderMockFixedByteSize) Return(i1 int) *DigestHol
 	return mmFixedByteSize.mock
 }
 
-//Set uses given function f to mock the DigestHolder.FixedByteSize method
+// Set uses given function f to mock the DigestHolder.FixedByteSize method
 func (mmFixedByteSize *mDigestHolderMockFixedByteSize) Set(f func() (i1 int)) *DigestHolderMock {
 	if mmFixedByteSize.defaultExpectation != nil {
 		mmFixedByteSize.mock.t.Fatalf("Default expectation is already set for the DigestHolder.FixedByteSize method")
@@ -867,7 +867,7 @@ func (mmFoldToUint64 *mDigestHolderMockFoldToUint64) Return(u1 uint64) *DigestHo
 	return mmFoldToUint64.mock
 }
 
-//Set uses given function f to mock the DigestHolder.FoldToUint64 method
+// Set uses given function f to mock the DigestHolder.FoldToUint64 method
 func (mmFoldToUint64 *mDigestHolderMockFoldToUint64) Set(f func() (u1 uint64)) *DigestHolderMock {
 	if mmFoldToUint64.defaultExpectation != nil {
 		mmFoldToUint64.mock.t.Fatalf("Default expectation is already set for the DigestHolder.FoldToUint64 method")
@@ -1010,7 +1010,7 @@ func (mmGetDigestMethod *mDigestHolderMockGetDigestMethod) Return(d1 DigestMetho
 	return mmGetDigestMethod.mock
 }
 
-//Set uses given function f to mock the DigestHolder.GetDigestMethod method
+// Set uses given function f to mock the DigestHolder.GetDigestMethod method
 func (mmGetDigestMethod *mDigestHolderMockGetDigestMethod) Set(f func() (d1 DigestMethod)) *DigestHolderMock {
 	if mmGetDigestMethod.defaultExpectation != nil {
 		mmGetDigestMethod.mock.t.Fatalf("Default expectation is already set for the DigestHolder.GetDigestMethod method")
@@ -1168,7 +1168,7 @@ func (mmSignWith *mDigestHolderMockSignWith) Return(s1 SignedDigestHolder) *Dige
 	return mmSignWith.mock
 }
 
-//Set uses given function f to mock the DigestHolder.SignWith method
+// Set uses given function f to mock the DigestHolder.SignWith method
 func (mmSignWith *mDigestHolderMockSignWith) Set(f func(signer DigestSigner) (s1 SignedDigestHolder)) *DigestHolderMock {
 	if mmSignWith.defaultExpectation != nil {
 		mmSignWith.mock.t.Fatalf("Default expectation is already set for the DigestHolder.SignWith method")
@@ -1384,7 +1384,7 @@ func (mmWriteTo *mDigestHolderMockWriteTo) Return(n int64, err error) *DigestHol
 	return mmWriteTo.mock
 }
 
-//Set uses given function f to mock the DigestHolder.WriteTo method
+// Set uses given function f to mock the DigestHolder.WriteTo method
 func (mmWriteTo *mDigestHolderMockWriteTo) Set(f func(w io.Writer) (n int64, err error)) *DigestHolderMock {
 	if mmWriteTo.defaultExpectation != nil {
 		mmWriteTo.mock.t.Fatalf("Default expectation is already set for the DigestHolder.WriteTo method")

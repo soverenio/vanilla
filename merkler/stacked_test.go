@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/insolar/vanilla/cryptkit"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/cryptkit"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 func TestStackedCalculator_Unbalanced_AllEntries(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func GetDefaultInjectionID(v interface{}) string {
@@ -83,7 +83,7 @@ func (u DependencyInjector) InjectAny(varRef interface{}) error {
 func (u DependencyInjector) injectAny(tt *lazyInjectName, fv reflect.Value, ft reflect.Type, id string, fieldName string) error {
 	switch isNillable, isSet := u.check(fv, ft); {
 	case isSet:
-		return throw.E("dependency is set", struct { ExpectedType reflect.Type } {ft})
+		return throw.E("dependency is set", struct{ ExpectedType reflect.Type }{ft})
 	case id != "":
 		if u.resolveNameAndSet(id, fv, ft, isNillable) {
 			return nil
@@ -100,7 +100,7 @@ func (u DependencyInjector) injectAny(tt *lazyInjectName, fv reflect.Value, ft r
 		}
 	}
 
-	return throw.E("dependency is missing", struct { ExpectedType reflect.Type } {ft})
+	return throw.E("dependency is missing", struct{ ExpectedType reflect.Type }{ft})
 }
 
 func (u DependencyInjector) InjectAll() error {
@@ -113,7 +113,7 @@ func (u DependencyInjector) InjectAll() error {
 	}
 	tt := t.Type()
 
-	lazyName := &lazyInjectName{t:tt}
+	lazyName := &lazyInjectName{t: tt}
 
 	for i := 0; i < tt.NumField(); i++ {
 		sf := tt.Field(i)
@@ -125,10 +125,10 @@ func (u DependencyInjector) InjectAll() error {
 		fv := t.Field(i)
 		if err := u.injectAny(lazyName, fv, sf.Type, id, sf.Name); err != nil {
 			return throw.WithDetails(err, struct {
-				Target reflect.Type
+				Target    reflect.Type
 				FieldName string
 			}{
-				Target: tt,
+				Target:    tt,
 				FieldName: sf.Name,
 			})
 		}
@@ -146,8 +146,8 @@ func (u DependencyInjector) tryInjectVar(id string, varRef interface{}) error {
 	case isSet:
 		return throw.E("dependency is set", struct {
 			ExpectedType reflect.Type
-			ID string
-		} {vt, id})
+			ID           string
+		}{vt, id})
 	case id != "":
 		if u.resolveNameAndSet(id, v, vt, isNillable) {
 			return nil
@@ -158,8 +158,8 @@ func (u DependencyInjector) tryInjectVar(id string, varRef interface{}) error {
 
 	return throw.E("dependency is missing", struct {
 		ExpectedType reflect.Type
-		ID string
-	} {vt, id})
+		ID           string
+	}{vt, id})
 }
 
 func checkVarRef(varRef interface{}) reflect.Value {

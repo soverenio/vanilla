@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/insolar/vanilla/reflectkit/mocks"
+	"github.com/soverenio/vanilla/reflectkit/mocks"
 )
 
 func TestMakeAddressable(t *testing.T) {

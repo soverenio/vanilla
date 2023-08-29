@@ -3,7 +3,7 @@ package unsafekit
 import (
 	"reflect"
 
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 type MemoryMapModel uint8

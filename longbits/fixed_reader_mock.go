@@ -116,7 +116,7 @@ func (mmAsByteString *mFixedReaderMockAsByteString) Return(b1 ByteString) *Fixed
 	return mmAsByteString.mock
 }
 
-//Set uses given function f to mock the FixedReader.AsByteString method
+// Set uses given function f to mock the FixedReader.AsByteString method
 func (mmAsByteString *mFixedReaderMockAsByteString) Set(f func() (b1 ByteString)) *FixedReaderMock {
 	if mmAsByteString.defaultExpectation != nil {
 		mmAsByteString.mock.t.Fatalf("Default expectation is already set for the FixedReader.AsByteString method")
@@ -274,7 +274,7 @@ func (mmCopyTo *mFixedReaderMockCopyTo) Return(i1 int) *FixedReaderMock {
 	return mmCopyTo.mock
 }
 
-//Set uses given function f to mock the FixedReader.CopyTo method
+// Set uses given function f to mock the FixedReader.CopyTo method
 func (mmCopyTo *mFixedReaderMockCopyTo) Set(f func(p []byte) (i1 int)) *FixedReaderMock {
 	if mmCopyTo.defaultExpectation != nil {
 		mmCopyTo.mock.t.Fatalf("Default expectation is already set for the FixedReader.CopyTo method")
@@ -474,7 +474,7 @@ func (mmFixedByteSize *mFixedReaderMockFixedByteSize) Return(i1 int) *FixedReade
 	return mmFixedByteSize.mock
 }
 
-//Set uses given function f to mock the FixedReader.FixedByteSize method
+// Set uses given function f to mock the FixedReader.FixedByteSize method
 func (mmFixedByteSize *mFixedReaderMockFixedByteSize) Set(f func() (i1 int)) *FixedReaderMock {
 	if mmFixedByteSize.defaultExpectation != nil {
 		mmFixedByteSize.mock.t.Fatalf("Default expectation is already set for the FixedReader.FixedByteSize method")
@@ -633,7 +633,7 @@ func (mmWriteTo *mFixedReaderMockWriteTo) Return(n int64, err error) *FixedReade
 	return mmWriteTo.mock
 }
 
-//Set uses given function f to mock the FixedReader.WriteTo method
+// Set uses given function f to mock the FixedReader.WriteTo method
 func (mmWriteTo *mFixedReaderMockWriteTo) Set(f func(w io.Writer) (n int64, err error)) *FixedReaderMock {
 	if mmWriteTo.defaultExpectation != nil {
 		mmWriteTo.mock.t.Fatalf("Default expectation is already set for the FixedReader.WriteTo method")

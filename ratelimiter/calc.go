@@ -4,8 +4,8 @@ import (
 	"math"
 	"math/bits"
 
-	"github.com/insolar/vanilla/args"
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/args"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func BucketConfigByThroughput(bytePerS int, refillUnit uint64, burst int, quantum uint32) BucketConfig {

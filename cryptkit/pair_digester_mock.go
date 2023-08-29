@@ -8,7 +8,7 @@ import (
 	mm_time "time"
 
 	"github.com/gojuno/minimock/v3"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 // PairDigesterMock implements PairDigester
@@ -123,7 +123,7 @@ func (mmDigestPair *mPairDigesterMockDigestPair) Return(d1 Digest) *PairDigester
 	return mmDigestPair.mock
 }
 
-//Set uses given function f to mock the PairDigester.DigestPair method
+// Set uses given function f to mock the PairDigester.DigestPair method
 func (mmDigestPair *mPairDigesterMockDigestPair) Set(f func(digest0 longbits.FoldableReader, digest1 longbits.FoldableReader) (d1 Digest)) *PairDigesterMock {
 	if mmDigestPair.defaultExpectation != nil {
 		mmDigestPair.mock.t.Fatalf("Default expectation is already set for the PairDigester.DigestPair method")
@@ -323,7 +323,7 @@ func (mmGetDigestMethod *mPairDigesterMockGetDigestMethod) Return(d1 DigestMetho
 	return mmGetDigestMethod.mock
 }
 
-//Set uses given function f to mock the PairDigester.GetDigestMethod method
+// Set uses given function f to mock the PairDigester.GetDigestMethod method
 func (mmGetDigestMethod *mPairDigesterMockGetDigestMethod) Set(f func() (d1 DigestMethod)) *PairDigesterMock {
 	if mmGetDigestMethod.defaultExpectation != nil {
 		mmGetDigestMethod.mock.t.Fatalf("Default expectation is already set for the PairDigester.GetDigestMethod method")
@@ -466,7 +466,7 @@ func (mmGetDigestSize *mPairDigesterMockGetDigestSize) Return(i1 int) *PairDiges
 	return mmGetDigestSize.mock
 }
 
-//Set uses given function f to mock the PairDigester.GetDigestSize method
+// Set uses given function f to mock the PairDigester.GetDigestSize method
 func (mmGetDigestSize *mPairDigesterMockGetDigestSize) Set(f func() (i1 int)) *PairDigesterMock {
 	if mmGetDigestSize.defaultExpectation != nil {
 		mmGetDigestSize.mock.t.Fatalf("Default expectation is already set for the PairDigester.GetDigestSize method")

@@ -10,8 +10,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/insolar/vanilla/cryptkit"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/cryptkit"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 type item = uint64
@@ -60,7 +60,7 @@ func buildTrace(t *testing.T, count uint, unbalancedStub cryptkit.Digest, skipEm
 	return
 }
 
-//nolint
+// nolint
 func printTrace(trace []item, count uint) {
 	for i, item := range trace {
 		switch index := uint(i >> 1); {

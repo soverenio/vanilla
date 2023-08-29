@@ -1,11 +1,11 @@
 package injector
 
 import (
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func NewStaticContainer(parentRegistry DependencyRegistry, contentRegistry ScanDependencyRegistry) StaticContainer {
-	sc := StaticContainer{ parentRegistry: parentRegistry }
+	sc := StaticContainer{parentRegistry: parentRegistry}
 	if contentRegistry != nil {
 		sc.localRegistry = map[string]interface{}{}
 		contentRegistry.ScanDependencies(func(id string, v interface{}) bool {

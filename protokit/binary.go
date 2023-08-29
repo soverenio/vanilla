@@ -3,7 +3,7 @@ package protokit
 import (
 	"io"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func BinaryProtoSize(n int) int {

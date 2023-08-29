@@ -82,7 +82,7 @@ func (mmPublicKeyStore *mPublicKeyStoreMockPublicKeyStore) Return() *PublicKeySt
 	return mmPublicKeyStore.mock
 }
 
-//Set uses given function f to mock the PublicKeyStore.PublicKeyStore method
+// Set uses given function f to mock the PublicKeyStore.PublicKeyStore method
 func (mmPublicKeyStore *mPublicKeyStoreMockPublicKeyStore) Set(f func()) *PublicKeyStoreMock {
 	if mmPublicKeyStore.defaultExpectation != nil {
 		mmPublicKeyStore.mock.t.Fatalf("Default expectation is already set for the PublicKeyStore.PublicKeyStore method")

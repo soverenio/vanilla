@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/insolar/vanilla/longbits"
-	"github.com/insolar/vanilla/unsafekit"
+	"github.com/soverenio/vanilla/longbits"
+	"github.com/soverenio/vanilla/unsafekit"
 )
 
 func GoMapHash(v longbits.ByteString) uint32 {

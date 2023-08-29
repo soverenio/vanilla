@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 // WARNING! The given array MUST be immutable

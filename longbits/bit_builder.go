@@ -3,7 +3,7 @@ package longbits
 import (
 	"math/bits"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type BitBuilderOrder byte
@@ -332,7 +332,7 @@ func (p *BitBuilder) ToggleBit(index int) bool {
 	b := p.bytes[byteIndex] ^ mask
 	p.bytes[byteIndex] = b
 
-	return b & mask != 0
+	return b&mask != 0
 }
 
 func (p *BitBuilder) SetBit(index, bit int) {
@@ -422,12 +422,13 @@ func (p *BitBuilder) Done() (b []byte, bitLen int) {
 func (p *BitBuilder) TrimZeros() (skippedPrefix int, b []byte) {
 	sb := p.bytes
 
-	for ;skippedPrefix < len(sb) && sb[skippedPrefix] == 0; skippedPrefix++ {}
+	for ; skippedPrefix < len(sb) && sb[skippedPrefix] == 0; skippedPrefix++ {
+	}
 
 	sb = sb[skippedPrefix:]
 
 	if p.accumulator != 0 {
-		b = make([]byte, 0, len(sb) + 1)
+		b = make([]byte, 0, len(sb)+1)
 		b = append(b, sb...)
 		b = append(b, p.accumulator)
 		return
@@ -438,8 +439,9 @@ func (p *BitBuilder) TrimZeros() (skippedPrefix int, b []byte) {
 	}
 
 	tailIndex := len(sb) - 1
-	for ;tailIndex > 0 && sb[tailIndex] == 0; tailIndex-- {}
-	b = append([]byte(nil), sb[:tailIndex + 1]...)
+	for ; tailIndex > 0 && sb[tailIndex] == 0; tailIndex-- {
+	}
+	b = append([]byte(nil), sb[:tailIndex+1]...)
 	return
 }
 

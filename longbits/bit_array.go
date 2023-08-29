@@ -3,7 +3,7 @@ package longbits
 import (
 	"math/bits"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type IndexedBits interface {

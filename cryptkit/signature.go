@@ -4,8 +4,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/insolar/vanilla/longbits"
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/longbits"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type SigningMethod string
@@ -36,7 +36,7 @@ func (s SignatureMethod) String() string {
 	return string(s)
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.SignatureHolder -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.SignatureHolder -o . -s _mock.go -g
 
 type SignatureHolder interface {
 	longbits.FoldableReader
@@ -44,7 +44,7 @@ type SignatureHolder interface {
 	Equals(other SignatureHolder) bool
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.SigningKeyHolder -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.SigningKeyHolder -o . -s _mock.go -g
 
 type SigningKeyHolder interface {
 	longbits.FoldableReader
@@ -62,14 +62,14 @@ type SignedDigestHolder interface {
 	VerifyWith(v SignatureVerifier) bool
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.DigestSigner -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.DigestSigner -o . -s _mock.go -g
 
 type DigestSigner interface {
 	SignDigest(digest Digest) Signature
 	GetSigningMethod() SigningMethod
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.DataSigner -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.DataSigner -o . -s _mock.go -g
 
 type DataSigner interface {
 	DigestSigner
@@ -109,7 +109,7 @@ type DataSignatureVerifier interface {
 	SignatureVerifier
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.SignatureVerifier -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.SignatureVerifier -o . -s _mock.go -g
 
 type SignatureVerifier interface {
 	GetDefaultSigningMethod() SigningMethod
@@ -121,7 +121,7 @@ type SignatureVerifier interface {
 	IsValidDataSignature(data io.Reader, signature SignatureHolder) bool
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.SignatureVerifierFactory -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.SignatureVerifierFactory -o . -s _mock.go -g
 
 type SignatureVerifierFactory interface {
 	CreateSignatureVerifierWithPKS(PublicKeyStore) SignatureVerifier
@@ -138,8 +138,6 @@ type DataSignerFactory interface {
 	IsSignatureKeySupported(SigningKey) bool
 	CreateDataSigner(SigningKey) DataSigner
 }
-
-
 
 type dataSigner struct {
 	DigestSigner
@@ -169,7 +167,7 @@ func AsDataSignatureVerifier(dd DataDigester, sv SignatureVerifier, defSigning S
 		panic(throw.IllegalValue())
 	}
 
-	return dataSignatureVerifier{dd, sv, dd.GetDigestMethod().SignedBy(defSigning) }
+	return dataSignatureVerifier{dd, sv, dd.GetDigestMethod().SignedBy(defSigning)}
 }
 
 type dataSignatureVerifier struct {
@@ -182,4 +180,3 @@ type dataSignatureVerifier struct {
 func (v dataSignatureVerifier) GetDefaultSignatureMethod() SignatureMethod {
 	return v.defSignature
 }
-

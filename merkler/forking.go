@@ -1,8 +1,8 @@
 package merkler
 
 import (
-	"github.com/insolar/vanilla/cryptkit"
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/cryptkit"
+	"github.com/soverenio/vanilla/throw"
 )
 
 var _ cryptkit.ForkingDigester = &ForkingCalculator{}

@@ -3,7 +3,7 @@ package synckit
 import (
 	"time"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func NewSemaphore(limit int) Semaphore {

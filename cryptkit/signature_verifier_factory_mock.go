@@ -105,7 +105,7 @@ func (mmCreateSignatureVerifierWithPKS *mSignatureVerifierFactoryMockCreateSigna
 	return mmCreateSignatureVerifierWithPKS.mock
 }
 
-//Set uses given function f to mock the SignatureVerifierFactory.CreateSignatureVerifierWithPKS method
+// Set uses given function f to mock the SignatureVerifierFactory.CreateSignatureVerifierWithPKS method
 func (mmCreateSignatureVerifierWithPKS *mSignatureVerifierFactoryMockCreateSignatureVerifierWithPKS) Set(f func(p1 PublicKeyStore) (s1 SignatureVerifier)) *SignatureVerifierFactoryMock {
 	if mmCreateSignatureVerifierWithPKS.defaultExpectation != nil {
 		mmCreateSignatureVerifierWithPKS.mock.t.Fatalf("Default expectation is already set for the SignatureVerifierFactory.CreateSignatureVerifierWithPKS method")

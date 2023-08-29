@@ -3,7 +3,7 @@ package ratelimiter
 import (
 	"math"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type BucketConfig struct {

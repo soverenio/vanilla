@@ -98,7 +98,7 @@ func (mmGetPublicKey *mCertificateHolderMockGetPublicKey) Return(s1 SigningKeyHo
 	return mmGetPublicKey.mock
 }
 
-//Set uses given function f to mock the CertificateHolder.GetPublicKey method
+// Set uses given function f to mock the CertificateHolder.GetPublicKey method
 func (mmGetPublicKey *mCertificateHolderMockGetPublicKey) Set(f func() (s1 SigningKeyHolder)) *CertificateHolderMock {
 	if mmGetPublicKey.defaultExpectation != nil {
 		mmGetPublicKey.mock.t.Fatalf("Default expectation is already set for the CertificateHolder.GetPublicKey method")
@@ -256,7 +256,7 @@ func (mmIsValidForHostAddress *mCertificateHolderMockIsValidForHostAddress) Retu
 	return mmIsValidForHostAddress.mock
 }
 
-//Set uses given function f to mock the CertificateHolder.IsValidForHostAddress method
+// Set uses given function f to mock the CertificateHolder.IsValidForHostAddress method
 func (mmIsValidForHostAddress *mCertificateHolderMockIsValidForHostAddress) Set(f func(HostAddress string) (b1 bool)) *CertificateHolderMock {
 	if mmIsValidForHostAddress.defaultExpectation != nil {
 		mmIsValidForHostAddress.mock.t.Fatalf("Default expectation is already set for the CertificateHolder.IsValidForHostAddress method")

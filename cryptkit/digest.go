@@ -3,7 +3,7 @@ package cryptkit
 import (
 	"io"
 
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 type DigestMethod string
@@ -21,7 +21,7 @@ type BasicDigester interface {
 	GetDigestSize() int
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.DataDigester -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.DataDigester -o . -s _mock.go -g
 
 type DataDigester interface {
 	BasicDigester
@@ -31,14 +31,14 @@ type DataDigester interface {
 	NewHasher() DigestHasher
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.PairDigester -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.PairDigester -o . -s _mock.go -g
 
 type PairDigester interface {
 	BasicDigester
 	DigestPair(digest0 longbits.FoldableReader, digest1 longbits.FoldableReader) Digest
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.SequenceDigester -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.SequenceDigester -o . -s _mock.go -g
 
 type SequenceDigester interface {
 	BasicDigester
@@ -46,7 +46,7 @@ type SequenceDigester interface {
 	FinishSequence() Digest
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.ForkingDigester -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.ForkingDigester -o . -s _mock.go -g
 
 type ForkingDigester interface {
 	SequenceDigester
@@ -60,7 +60,7 @@ type DigestFactory interface {
 	CreateForkingDigester() ForkingDigester
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/cryptkit.DigestHolder -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/cryptkit.DigestHolder -o . -s _mock.go -g
 
 type DigestHolder interface {
 	longbits.FoldableReader

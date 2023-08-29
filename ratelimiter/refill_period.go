@@ -3,7 +3,7 @@ package ratelimiter
 import (
 	"math"
 
-	"github.com/insolar/vanilla/atomickit"
+	"github.com/soverenio/vanilla/atomickit"
 )
 
 /****************************************************/

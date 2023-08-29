@@ -3,7 +3,7 @@ package iokit
 import (
 	"io"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 var _ io.ReadWriteCloser = ErrorWrapper{}

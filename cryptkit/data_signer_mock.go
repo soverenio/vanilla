@@ -164,7 +164,7 @@ func (mmDigestBytes *mDataSignerMockDigestBytes) Return(d1 Digest) *DataSignerMo
 	return mmDigestBytes.mock
 }
 
-//Set uses given function f to mock the DataSigner.DigestBytes method
+// Set uses given function f to mock the DataSigner.DigestBytes method
 func (mmDigestBytes *mDataSignerMockDigestBytes) Set(f func(ba1 []byte) (d1 Digest)) *DataSignerMock {
 	if mmDigestBytes.defaultExpectation != nil {
 		mmDigestBytes.mock.t.Fatalf("Default expectation is already set for the DataSigner.DigestBytes method")
@@ -379,7 +379,7 @@ func (mmDigestData *mDataSignerMockDigestData) Return(d1 Digest) *DataSignerMock
 	return mmDigestData.mock
 }
 
-//Set uses given function f to mock the DataSigner.DigestData method
+// Set uses given function f to mock the DataSigner.DigestData method
 func (mmDigestData *mDataSignerMockDigestData) Set(f func(r1 io.Reader) (d1 Digest)) *DataSignerMock {
 	if mmDigestData.defaultExpectation != nil {
 		mmDigestData.mock.t.Fatalf("Default expectation is already set for the DataSigner.DigestData method")
@@ -579,7 +579,7 @@ func (mmGetDigestMethod *mDataSignerMockGetDigestMethod) Return(d1 DigestMethod)
 	return mmGetDigestMethod.mock
 }
 
-//Set uses given function f to mock the DataSigner.GetDigestMethod method
+// Set uses given function f to mock the DataSigner.GetDigestMethod method
 func (mmGetDigestMethod *mDataSignerMockGetDigestMethod) Set(f func() (d1 DigestMethod)) *DataSignerMock {
 	if mmGetDigestMethod.defaultExpectation != nil {
 		mmGetDigestMethod.mock.t.Fatalf("Default expectation is already set for the DataSigner.GetDigestMethod method")
@@ -722,7 +722,7 @@ func (mmGetDigestSize *mDataSignerMockGetDigestSize) Return(i1 int) *DataSignerM
 	return mmGetDigestSize.mock
 }
 
-//Set uses given function f to mock the DataSigner.GetDigestSize method
+// Set uses given function f to mock the DataSigner.GetDigestSize method
 func (mmGetDigestSize *mDataSignerMockGetDigestSize) Set(f func() (i1 int)) *DataSignerMock {
 	if mmGetDigestSize.defaultExpectation != nil {
 		mmGetDigestSize.mock.t.Fatalf("Default expectation is already set for the DataSigner.GetDigestSize method")
@@ -865,7 +865,7 @@ func (mmGetSignatureMethod *mDataSignerMockGetSignatureMethod) Return(s1 Signatu
 	return mmGetSignatureMethod.mock
 }
 
-//Set uses given function f to mock the DataSigner.GetSignatureMethod method
+// Set uses given function f to mock the DataSigner.GetSignatureMethod method
 func (mmGetSignatureMethod *mDataSignerMockGetSignatureMethod) Set(f func() (s1 SignatureMethod)) *DataSignerMock {
 	if mmGetSignatureMethod.defaultExpectation != nil {
 		mmGetSignatureMethod.mock.t.Fatalf("Default expectation is already set for the DataSigner.GetSignatureMethod method")
@@ -1008,7 +1008,7 @@ func (mmGetSigningMethod *mDataSignerMockGetSigningMethod) Return(s1 SigningMeth
 	return mmGetSigningMethod.mock
 }
 
-//Set uses given function f to mock the DataSigner.GetSigningMethod method
+// Set uses given function f to mock the DataSigner.GetSigningMethod method
 func (mmGetSigningMethod *mDataSignerMockGetSigningMethod) Set(f func() (s1 SigningMethod)) *DataSignerMock {
 	if mmGetSigningMethod.defaultExpectation != nil {
 		mmGetSigningMethod.mock.t.Fatalf("Default expectation is already set for the DataSigner.GetSigningMethod method")
@@ -1151,7 +1151,7 @@ func (mmNewHasher *mDataSignerMockNewHasher) Return(d1 DigestHasher) *DataSigner
 	return mmNewHasher.mock
 }
 
-//Set uses given function f to mock the DataSigner.NewHasher method
+// Set uses given function f to mock the DataSigner.NewHasher method
 func (mmNewHasher *mDataSignerMockNewHasher) Set(f func() (d1 DigestHasher)) *DataSignerMock {
 	if mmNewHasher.defaultExpectation != nil {
 		mmNewHasher.mock.t.Fatalf("Default expectation is already set for the DataSigner.NewHasher method")
@@ -1309,7 +1309,7 @@ func (mmSignDigest *mDataSignerMockSignDigest) Return(s1 Signature) *DataSignerM
 	return mmSignDigest.mock
 }
 
-//Set uses given function f to mock the DataSigner.SignDigest method
+// Set uses given function f to mock the DataSigner.SignDigest method
 func (mmSignDigest *mDataSignerMockSignDigest) Set(f func(digest Digest) (s1 Signature)) *DataSignerMock {
 	if mmSignDigest.defaultExpectation != nil {
 		mmSignDigest.mock.t.Fatalf("Default expectation is already set for the DataSigner.SignDigest method")

@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"unsafe"
 
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 func KeepAliveWhile(p unsafe.Pointer, fn func(unsafe.Pointer) uintptr) uintptr {

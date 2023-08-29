@@ -1,9 +1,9 @@
 package merkler
 
 import (
-	"github.com/insolar/vanilla/args"
-	"github.com/insolar/vanilla/cryptkit"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/args"
+	"github.com/soverenio/vanilla/cryptkit"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 var _ cryptkit.SequenceDigester = &StackedCalculator{}
@@ -16,7 +16,6 @@ type TraceFunc func(v longbits.FoldableReader, isLeaf bool)
 //
 // NB! For every AddNext() call the (traceFn) is always called twice - first time with (leafX, true) value, and then (nodeX, false), where nodeX can be nil.
 // And during FinishSequence() - the (traceFn) can be called N < 2*log(leafCount) times with (nodeX, false), where nodeX can not be nil.
-//
 func NewStackedCalculator(digester cryptkit.PairDigester, unbalancedStub cryptkit.Digest, traceFn TraceFunc) StackedCalculator {
 	if digester == nil {
 		panic("illegal value")
@@ -36,11 +35,10 @@ func NewStackedCalculator(digester cryptkit.PairDigester, unbalancedStub cryptki
 // When AddNext() was never called then FinishSequence() will return a non-nil unbalancedStub otherwise will panic.
 //
 // Complexity (n - a number of added hashes):
-//  - AddNext() is O(1), it does only upto 2 calls to PairDigester.DigestPair()
-//  - FinishSequence() is O(log n), it does k*log(n) calls to PairDigester.DigestPair() where k ~ 1 when unbalancedStub == nil and k ~ 2 otherwise
-//  - ForkSequence() is O(log n), but only copies memory
-//  - Memory is O(log n)
-//
+//   - AddNext() is O(1), it does only upto 2 calls to PairDigester.DigestPair()
+//   - FinishSequence() is O(log n), it does k*log(n) calls to PairDigester.DigestPair() where k ~ 1 when unbalancedStub == nil and k ~ 2 otherwise
+//   - ForkSequence() is O(log n), but only copies memory
+//   - Memory is O(log n)
 type StackedCalculator struct {
 	digester       cryptkit.PairDigester
 	unbalancedStub cryptkit.Digest

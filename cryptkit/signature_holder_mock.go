@@ -9,7 +9,7 @@ import (
 	mm_time "time"
 
 	"github.com/gojuno/minimock/v3"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 // SignatureHolderMock implements SignatureHolder
@@ -142,7 +142,7 @@ func (mmAsByteString *mSignatureHolderMockAsByteString) Return(b1 longbits.ByteS
 	return mmAsByteString.mock
 }
 
-//Set uses given function f to mock the SignatureHolder.AsByteString method
+// Set uses given function f to mock the SignatureHolder.AsByteString method
 func (mmAsByteString *mSignatureHolderMockAsByteString) Set(f func() (b1 longbits.ByteString)) *SignatureHolderMock {
 	if mmAsByteString.defaultExpectation != nil {
 		mmAsByteString.mock.t.Fatalf("Default expectation is already set for the SignatureHolder.AsByteString method")
@@ -300,7 +300,7 @@ func (mmCopyTo *mSignatureHolderMockCopyTo) Return(i1 int) *SignatureHolderMock 
 	return mmCopyTo.mock
 }
 
-//Set uses given function f to mock the SignatureHolder.CopyTo method
+// Set uses given function f to mock the SignatureHolder.CopyTo method
 func (mmCopyTo *mSignatureHolderMockCopyTo) Set(f func(p []byte) (i1 int)) *SignatureHolderMock {
 	if mmCopyTo.defaultExpectation != nil {
 		mmCopyTo.mock.t.Fatalf("Default expectation is already set for the SignatureHolder.CopyTo method")
@@ -515,7 +515,7 @@ func (mmEquals *mSignatureHolderMockEquals) Return(b1 bool) *SignatureHolderMock
 	return mmEquals.mock
 }
 
-//Set uses given function f to mock the SignatureHolder.Equals method
+// Set uses given function f to mock the SignatureHolder.Equals method
 func (mmEquals *mSignatureHolderMockEquals) Set(f func(other SignatureHolder) (b1 bool)) *SignatureHolderMock {
 	if mmEquals.defaultExpectation != nil {
 		mmEquals.mock.t.Fatalf("Default expectation is already set for the SignatureHolder.Equals method")
@@ -715,7 +715,7 @@ func (mmFixedByteSize *mSignatureHolderMockFixedByteSize) Return(i1 int) *Signat
 	return mmFixedByteSize.mock
 }
 
-//Set uses given function f to mock the SignatureHolder.FixedByteSize method
+// Set uses given function f to mock the SignatureHolder.FixedByteSize method
 func (mmFixedByteSize *mSignatureHolderMockFixedByteSize) Set(f func() (i1 int)) *SignatureHolderMock {
 	if mmFixedByteSize.defaultExpectation != nil {
 		mmFixedByteSize.mock.t.Fatalf("Default expectation is already set for the SignatureHolder.FixedByteSize method")
@@ -858,7 +858,7 @@ func (mmFoldToUint64 *mSignatureHolderMockFoldToUint64) Return(u1 uint64) *Signa
 	return mmFoldToUint64.mock
 }
 
-//Set uses given function f to mock the SignatureHolder.FoldToUint64 method
+// Set uses given function f to mock the SignatureHolder.FoldToUint64 method
 func (mmFoldToUint64 *mSignatureHolderMockFoldToUint64) Set(f func() (u1 uint64)) *SignatureHolderMock {
 	if mmFoldToUint64.defaultExpectation != nil {
 		mmFoldToUint64.mock.t.Fatalf("Default expectation is already set for the SignatureHolder.FoldToUint64 method")
@@ -1001,7 +1001,7 @@ func (mmGetSignatureMethod *mSignatureHolderMockGetSignatureMethod) Return(s1 Si
 	return mmGetSignatureMethod.mock
 }
 
-//Set uses given function f to mock the SignatureHolder.GetSignatureMethod method
+// Set uses given function f to mock the SignatureHolder.GetSignatureMethod method
 func (mmGetSignatureMethod *mSignatureHolderMockGetSignatureMethod) Set(f func() (s1 SignatureMethod)) *SignatureHolderMock {
 	if mmGetSignatureMethod.defaultExpectation != nil {
 		mmGetSignatureMethod.mock.t.Fatalf("Default expectation is already set for the SignatureHolder.GetSignatureMethod method")
@@ -1160,7 +1160,7 @@ func (mmWriteTo *mSignatureHolderMockWriteTo) Return(n int64, err error) *Signat
 	return mmWriteTo.mock
 }
 
-//Set uses given function f to mock the SignatureHolder.WriteTo method
+// Set uses given function f to mock the SignatureHolder.WriteTo method
 func (mmWriteTo *mSignatureHolderMockWriteTo) Set(f func(w io.Writer) (n int64, err error)) *SignatureHolderMock {
 	if mmWriteTo.defaultExpectation != nil {
 		mmWriteTo.mock.t.Fatalf("Default expectation is already set for the SignatureHolder.WriteTo method")

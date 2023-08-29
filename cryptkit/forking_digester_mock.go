@@ -8,7 +8,7 @@ import (
 	mm_time "time"
 
 	"github.com/gojuno/minimock/v3"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 // ForkingDigesterMock implements ForkingDigester
@@ -133,7 +133,7 @@ func (mmAddNext *mForkingDigesterMockAddNext) Return() *ForkingDigesterMock {
 	return mmAddNext.mock
 }
 
-//Set uses given function f to mock the ForkingDigester.AddNext method
+// Set uses given function f to mock the ForkingDigester.AddNext method
 func (mmAddNext *mForkingDigesterMockAddNext) Set(f func(digest longbits.FoldableReader)) *ForkingDigesterMock {
 	if mmAddNext.defaultExpectation != nil {
 		mmAddNext.mock.t.Fatalf("Default expectation is already set for the ForkingDigester.AddNext method")
@@ -310,7 +310,7 @@ func (mmFinishSequence *mForkingDigesterMockFinishSequence) Return(d1 Digest) *F
 	return mmFinishSequence.mock
 }
 
-//Set uses given function f to mock the ForkingDigester.FinishSequence method
+// Set uses given function f to mock the ForkingDigester.FinishSequence method
 func (mmFinishSequence *mForkingDigesterMockFinishSequence) Set(f func() (d1 Digest)) *ForkingDigesterMock {
 	if mmFinishSequence.defaultExpectation != nil {
 		mmFinishSequence.mock.t.Fatalf("Default expectation is already set for the ForkingDigester.FinishSequence method")
@@ -453,7 +453,7 @@ func (mmForkSequence *mForkingDigesterMockForkSequence) Return(f1 ForkingDigeste
 	return mmForkSequence.mock
 }
 
-//Set uses given function f to mock the ForkingDigester.ForkSequence method
+// Set uses given function f to mock the ForkingDigester.ForkSequence method
 func (mmForkSequence *mForkingDigesterMockForkSequence) Set(f func() (f1 ForkingDigester)) *ForkingDigesterMock {
 	if mmForkSequence.defaultExpectation != nil {
 		mmForkSequence.mock.t.Fatalf("Default expectation is already set for the ForkingDigester.ForkSequence method")
@@ -596,7 +596,7 @@ func (mmGetDigestMethod *mForkingDigesterMockGetDigestMethod) Return(d1 DigestMe
 	return mmGetDigestMethod.mock
 }
 
-//Set uses given function f to mock the ForkingDigester.GetDigestMethod method
+// Set uses given function f to mock the ForkingDigester.GetDigestMethod method
 func (mmGetDigestMethod *mForkingDigesterMockGetDigestMethod) Set(f func() (d1 DigestMethod)) *ForkingDigesterMock {
 	if mmGetDigestMethod.defaultExpectation != nil {
 		mmGetDigestMethod.mock.t.Fatalf("Default expectation is already set for the ForkingDigester.GetDigestMethod method")
@@ -739,7 +739,7 @@ func (mmGetDigestSize *mForkingDigesterMockGetDigestSize) Return(i1 int) *Forkin
 	return mmGetDigestSize.mock
 }
 
-//Set uses given function f to mock the ForkingDigester.GetDigestSize method
+// Set uses given function f to mock the ForkingDigester.GetDigestSize method
 func (mmGetDigestSize *mForkingDigesterMockGetDigestSize) Set(f func() (i1 int)) *ForkingDigesterMock {
 	if mmGetDigestSize.defaultExpectation != nil {
 		mmGetDigestSize.mock.t.Fatalf("Default expectation is already set for the ForkingDigester.GetDigestSize method")

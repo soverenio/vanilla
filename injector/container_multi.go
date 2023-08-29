@@ -1,7 +1,7 @@
 package injector
 
 import (
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func NewMultiMapRegistry(maps []map[string]interface{}) MultiMapRegistry {

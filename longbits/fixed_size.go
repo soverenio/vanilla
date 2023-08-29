@@ -5,14 +5,14 @@ import (
 	"errors"
 	"io"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type Foldable interface {
 	FoldToUint64() uint64
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/longbits.FixedReader -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/longbits.FixedReader -o . -s _mock.go -g
 type FixedReader interface {
 	io.WriterTo
 	CopyTo(p []byte) int
@@ -21,7 +21,7 @@ type FixedReader interface {
 	FixedByteSize() int
 }
 
-//go:generate minimock -i github.com/insolar/vanilla/longbits.FoldableReader -o . -s _mock.go -g
+//go:generate minimock -i github.com/soverenio/vanilla/longbits.FoldableReader -o . -s _mock.go -g
 type FoldableReader interface {
 	FixedReader
 	Foldable
@@ -155,7 +155,7 @@ func CopyFixed(v FixedReader) FoldableReader {
 	if bs, ok := v.(ByteString); ok {
 		return bs
 	}
-	switch n := v.FixedByteSize(); n*8 {
+	switch n := v.FixedByteSize(); n * 8 {
 	case 0:
 		return EmptyByteString
 	case 64:

@@ -8,7 +8,7 @@ import (
 	mm_time "time"
 
 	"github.com/gojuno/minimock/v3"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 // SequenceDigesterMock implements SequenceDigester
@@ -125,7 +125,7 @@ func (mmAddNext *mSequenceDigesterMockAddNext) Return() *SequenceDigesterMock {
 	return mmAddNext.mock
 }
 
-//Set uses given function f to mock the SequenceDigester.AddNext method
+// Set uses given function f to mock the SequenceDigester.AddNext method
 func (mmAddNext *mSequenceDigesterMockAddNext) Set(f func(digest longbits.FoldableReader)) *SequenceDigesterMock {
 	if mmAddNext.defaultExpectation != nil {
 		mmAddNext.mock.t.Fatalf("Default expectation is already set for the SequenceDigester.AddNext method")
@@ -302,7 +302,7 @@ func (mmFinishSequence *mSequenceDigesterMockFinishSequence) Return(d1 Digest) *
 	return mmFinishSequence.mock
 }
 
-//Set uses given function f to mock the SequenceDigester.FinishSequence method
+// Set uses given function f to mock the SequenceDigester.FinishSequence method
 func (mmFinishSequence *mSequenceDigesterMockFinishSequence) Set(f func() (d1 Digest)) *SequenceDigesterMock {
 	if mmFinishSequence.defaultExpectation != nil {
 		mmFinishSequence.mock.t.Fatalf("Default expectation is already set for the SequenceDigester.FinishSequence method")
@@ -445,7 +445,7 @@ func (mmGetDigestMethod *mSequenceDigesterMockGetDigestMethod) Return(d1 DigestM
 	return mmGetDigestMethod.mock
 }
 
-//Set uses given function f to mock the SequenceDigester.GetDigestMethod method
+// Set uses given function f to mock the SequenceDigester.GetDigestMethod method
 func (mmGetDigestMethod *mSequenceDigesterMockGetDigestMethod) Set(f func() (d1 DigestMethod)) *SequenceDigesterMock {
 	if mmGetDigestMethod.defaultExpectation != nil {
 		mmGetDigestMethod.mock.t.Fatalf("Default expectation is already set for the SequenceDigester.GetDigestMethod method")
@@ -588,7 +588,7 @@ func (mmGetDigestSize *mSequenceDigesterMockGetDigestSize) Return(i1 int) *Seque
 	return mmGetDigestSize.mock
 }
 
-//Set uses given function f to mock the SequenceDigester.GetDigestSize method
+// Set uses given function f to mock the SequenceDigester.GetDigestSize method
 func (mmGetDigestSize *mSequenceDigesterMockGetDigestSize) Set(f func() (i1 int)) *SequenceDigesterMock {
 	if mmGetDigestSize.defaultExpectation != nil {
 		mmGetDigestSize.mock.t.Fatalf("Default expectation is already set for the SequenceDigester.GetDigestSize method")

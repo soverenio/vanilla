@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func NewDynamicContainer(parentRegistry DependencyRegistry) *DynamicContainer {
-	return &DynamicContainer{ parentRegistry: parentRegistry }
+	return &DynamicContainer{parentRegistry: parentRegistry}
 }
 
 type DynamicContainer struct {
 	parentRegistry DependencyRegistry
-	localRegistry sync.Map
+	localRegistry  sync.Map
 }
 
 func (m *DynamicContainer) FindDependency(id string) (interface{}, bool) {
@@ -125,4 +125,3 @@ func (m *DynamicContainer) ReplaceInterfaceDependency(v interface{}) {
 	m.localRegistry.Delete(id)
 	m.PutDependency(id, vv)
 }
-

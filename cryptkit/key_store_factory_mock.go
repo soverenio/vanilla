@@ -105,7 +105,7 @@ func (mmCreatePublicKeyStore *mKeyStoreFactoryMockCreatePublicKeyStore) Return(p
 	return mmCreatePublicKeyStore.mock
 }
 
-//Set uses given function f to mock the KeyStoreFactory.CreatePublicKeyStore method
+// Set uses given function f to mock the KeyStoreFactory.CreatePublicKeyStore method
 func (mmCreatePublicKeyStore *mKeyStoreFactoryMockCreatePublicKeyStore) Set(f func(s1 SigningKeyHolder) (p1 PublicKeyStore)) *KeyStoreFactoryMock {
 	if mmCreatePublicKeyStore.defaultExpectation != nil {
 		mmCreatePublicKeyStore.mock.t.Fatalf("Default expectation is already set for the KeyStoreFactory.CreatePublicKeyStore method")

@@ -5,15 +5,15 @@ import (
 	"sync/atomic"
 	"unsafe"
 
-	"github.com/insolar/vanilla/longbits"
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/longbits"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func NewOnceByteString(v longbits.ByteString) OnceByteString {
 	header := (*reflect.StringHeader)(unsafe.Pointer(&v))
 
 	return OnceByteString{
-		len: Int{ len(v) },
+		len: Int{len(v)},
 		str: unsafe.Pointer(header.Data),
 	}
 }
@@ -30,7 +30,7 @@ func (p *OnceByteString) Load() longbits.ByteString {
 
 const (
 	strLenUpdating = -1
-	strLenZero = -2
+	strLenZero     = -2
 )
 
 func (p *OnceByteString) TryLoad() (longbits.ByteString, bool) {

@@ -4,7 +4,7 @@ import (
 	"io"
 	"math"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type RateLimiter interface {
@@ -76,7 +76,6 @@ func (r RateLimitedWriter) Close() error {
 	}
 	return nil
 }
-
 
 /****************************/
 

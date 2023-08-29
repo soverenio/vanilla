@@ -3,7 +3,7 @@ package injector
 import (
 	"reflect"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func NewDependencyResolver(target interface{}, globalParent DependencyRegistry, localParent DependencyRegistry,
@@ -137,7 +137,7 @@ func (p *DependencyResolver) findImpl(scanner ScanDependencyRegistry, t reflect.
 		case id != "":
 			err = throw.E("ambiguous dependency", struct {
 				ExpectedType reflect.Type
-				ID1, ID2 string
+				ID1, ID2     string
 			}{
 				t, id, xid,
 			})

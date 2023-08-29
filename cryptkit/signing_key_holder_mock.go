@@ -9,7 +9,7 @@ import (
 	mm_time "time"
 
 	"github.com/gojuno/minimock/v3"
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 // SigningKeyHolderMock implements SigningKeyHolder
@@ -150,7 +150,7 @@ func (mmAsByteString *mSigningKeyHolderMockAsByteString) Return(b1 longbits.Byte
 	return mmAsByteString.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.AsByteString method
+// Set uses given function f to mock the SigningKeyHolder.AsByteString method
 func (mmAsByteString *mSigningKeyHolderMockAsByteString) Set(f func() (b1 longbits.ByteString)) *SigningKeyHolderMock {
 	if mmAsByteString.defaultExpectation != nil {
 		mmAsByteString.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.AsByteString method")
@@ -308,7 +308,7 @@ func (mmCopyTo *mSigningKeyHolderMockCopyTo) Return(i1 int) *SigningKeyHolderMoc
 	return mmCopyTo.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.CopyTo method
+// Set uses given function f to mock the SigningKeyHolder.CopyTo method
 func (mmCopyTo *mSigningKeyHolderMockCopyTo) Set(f func(p []byte) (i1 int)) *SigningKeyHolderMock {
 	if mmCopyTo.defaultExpectation != nil {
 		mmCopyTo.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.CopyTo method")
@@ -523,7 +523,7 @@ func (mmEquals *mSigningKeyHolderMockEquals) Return(b1 bool) *SigningKeyHolderMo
 	return mmEquals.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.Equals method
+// Set uses given function f to mock the SigningKeyHolder.Equals method
 func (mmEquals *mSigningKeyHolderMockEquals) Set(f func(other SigningKeyHolder) (b1 bool)) *SigningKeyHolderMock {
 	if mmEquals.defaultExpectation != nil {
 		mmEquals.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.Equals method")
@@ -723,7 +723,7 @@ func (mmFixedByteSize *mSigningKeyHolderMockFixedByteSize) Return(i1 int) *Signi
 	return mmFixedByteSize.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.FixedByteSize method
+// Set uses given function f to mock the SigningKeyHolder.FixedByteSize method
 func (mmFixedByteSize *mSigningKeyHolderMockFixedByteSize) Set(f func() (i1 int)) *SigningKeyHolderMock {
 	if mmFixedByteSize.defaultExpectation != nil {
 		mmFixedByteSize.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.FixedByteSize method")
@@ -866,7 +866,7 @@ func (mmFoldToUint64 *mSigningKeyHolderMockFoldToUint64) Return(u1 uint64) *Sign
 	return mmFoldToUint64.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.FoldToUint64 method
+// Set uses given function f to mock the SigningKeyHolder.FoldToUint64 method
 func (mmFoldToUint64 *mSigningKeyHolderMockFoldToUint64) Set(f func() (u1 uint64)) *SigningKeyHolderMock {
 	if mmFoldToUint64.defaultExpectation != nil {
 		mmFoldToUint64.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.FoldToUint64 method")
@@ -1009,7 +1009,7 @@ func (mmGetSigningKeyType *mSigningKeyHolderMockGetSigningKeyType) Return(s1 Sig
 	return mmGetSigningKeyType.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.GetSigningKeyType method
+// Set uses given function f to mock the SigningKeyHolder.GetSigningKeyType method
 func (mmGetSigningKeyType *mSigningKeyHolderMockGetSigningKeyType) Set(f func() (s1 SigningKeyType)) *SigningKeyHolderMock {
 	if mmGetSigningKeyType.defaultExpectation != nil {
 		mmGetSigningKeyType.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.GetSigningKeyType method")
@@ -1152,7 +1152,7 @@ func (mmGetSigningMethod *mSigningKeyHolderMockGetSigningMethod) Return(s1 Signi
 	return mmGetSigningMethod.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.GetSigningMethod method
+// Set uses given function f to mock the SigningKeyHolder.GetSigningMethod method
 func (mmGetSigningMethod *mSigningKeyHolderMockGetSigningMethod) Set(f func() (s1 SigningMethod)) *SigningKeyHolderMock {
 	if mmGetSigningMethod.defaultExpectation != nil {
 		mmGetSigningMethod.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.GetSigningMethod method")
@@ -1311,7 +1311,7 @@ func (mmWriteTo *mSigningKeyHolderMockWriteTo) Return(n int64, err error) *Signi
 	return mmWriteTo.mock
 }
 
-//Set uses given function f to mock the SigningKeyHolder.WriteTo method
+// Set uses given function f to mock the SigningKeyHolder.WriteTo method
 func (mmWriteTo *mSigningKeyHolderMockWriteTo) Set(f func(w io.Writer) (n int64, err error)) *SigningKeyHolderMock {
 	if mmWriteTo.defaultExpectation != nil {
 		mmWriteTo.mock.t.Fatalf("Default expectation is already set for the SigningKeyHolder.WriteTo method")

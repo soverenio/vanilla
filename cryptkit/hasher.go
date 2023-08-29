@@ -4,9 +4,9 @@ import (
 	"hash"
 	"io"
 
-	"github.com/insolar/vanilla/iokit"
-	"github.com/insolar/vanilla/longbits"
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/iokit"
+	"github.com/soverenio/vanilla/longbits"
+	"github.com/soverenio/vanilla/throw"
 )
 
 var _ hash.Hash = DigestHasher{}

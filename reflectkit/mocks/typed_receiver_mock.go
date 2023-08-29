@@ -183,7 +183,7 @@ func (mmReceiveBool *mTypedReceiverMockReceiveBool) Return() *TypedReceiverMock 
 	return mmReceiveBool.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveBool method
+// Set uses given function f to mock the TypedReceiver.ReceiveBool method
 func (mmReceiveBool *mTypedReceiverMockReceiveBool) Set(f func(k1 reflect.Kind, b1 bool)) *TypedReceiverMock {
 	if mmReceiveBool.defaultExpectation != nil {
 		mmReceiveBool.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveBool method")
@@ -371,7 +371,7 @@ func (mmReceiveComplex *mTypedReceiverMockReceiveComplex) Return() *TypedReceive
 	return mmReceiveComplex.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveComplex method
+// Set uses given function f to mock the TypedReceiver.ReceiveComplex method
 func (mmReceiveComplex *mTypedReceiverMockReceiveComplex) Set(f func(k1 reflect.Kind, c1 complex128)) *TypedReceiverMock {
 	if mmReceiveComplex.defaultExpectation != nil {
 		mmReceiveComplex.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveComplex method")
@@ -560,7 +560,7 @@ func (mmReceiveElse *mTypedReceiverMockReceiveElse) Return() *TypedReceiverMock 
 	return mmReceiveElse.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveElse method
+// Set uses given function f to mock the TypedReceiver.ReceiveElse method
 func (mmReceiveElse *mTypedReceiverMockReceiveElse) Set(f func(t reflect.Kind, v interface{}, isZero bool)) *TypedReceiverMock {
 	if mmReceiveElse.defaultExpectation != nil {
 		mmReceiveElse.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveElse method")
@@ -748,7 +748,7 @@ func (mmReceiveFloat *mTypedReceiverMockReceiveFloat) Return() *TypedReceiverMoc
 	return mmReceiveFloat.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveFloat method
+// Set uses given function f to mock the TypedReceiver.ReceiveFloat method
 func (mmReceiveFloat *mTypedReceiverMockReceiveFloat) Set(f func(k1 reflect.Kind, f1 float64)) *TypedReceiverMock {
 	if mmReceiveFloat.defaultExpectation != nil {
 		mmReceiveFloat.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveFloat method")
@@ -936,7 +936,7 @@ func (mmReceiveIface *mTypedReceiverMockReceiveIface) Return() *TypedReceiverMoc
 	return mmReceiveIface.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveIface method
+// Set uses given function f to mock the TypedReceiver.ReceiveIface method
 func (mmReceiveIface *mTypedReceiverMockReceiveIface) Set(f func(k1 reflect.Kind, p1 interface{})) *TypedReceiverMock {
 	if mmReceiveIface.defaultExpectation != nil {
 		mmReceiveIface.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveIface method")
@@ -1124,7 +1124,7 @@ func (mmReceiveInt *mTypedReceiverMockReceiveInt) Return() *TypedReceiverMock {
 	return mmReceiveInt.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveInt method
+// Set uses given function f to mock the TypedReceiver.ReceiveInt method
 func (mmReceiveInt *mTypedReceiverMockReceiveInt) Set(f func(k1 reflect.Kind, i1 int64)) *TypedReceiverMock {
 	if mmReceiveInt.defaultExpectation != nil {
 		mmReceiveInt.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveInt method")
@@ -1311,7 +1311,7 @@ func (mmReceiveNil *mTypedReceiverMockReceiveNil) Return() *TypedReceiverMock {
 	return mmReceiveNil.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveNil method
+// Set uses given function f to mock the TypedReceiver.ReceiveNil method
 func (mmReceiveNil *mTypedReceiverMockReceiveNil) Set(f func(k1 reflect.Kind)) *TypedReceiverMock {
 	if mmReceiveNil.defaultExpectation != nil {
 		mmReceiveNil.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveNil method")
@@ -1499,7 +1499,7 @@ func (mmReceiveString *mTypedReceiverMockReceiveString) Return() *TypedReceiverM
 	return mmReceiveString.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveString method
+// Set uses given function f to mock the TypedReceiver.ReceiveString method
 func (mmReceiveString *mTypedReceiverMockReceiveString) Set(f func(k1 reflect.Kind, s1 string)) *TypedReceiverMock {
 	if mmReceiveString.defaultExpectation != nil {
 		mmReceiveString.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveString method")
@@ -1687,7 +1687,7 @@ func (mmReceiveUint *mTypedReceiverMockReceiveUint) Return() *TypedReceiverMock 
 	return mmReceiveUint.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveUint method
+// Set uses given function f to mock the TypedReceiver.ReceiveUint method
 func (mmReceiveUint *mTypedReceiverMockReceiveUint) Set(f func(k1 reflect.Kind, u1 uint64)) *TypedReceiverMock {
 	if mmReceiveUint.defaultExpectation != nil {
 		mmReceiveUint.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveUint method")
@@ -1874,7 +1874,7 @@ func (mmReceiveZero *mTypedReceiverMockReceiveZero) Return() *TypedReceiverMock 
 	return mmReceiveZero.mock
 }
 
-//Set uses given function f to mock the TypedReceiver.ReceiveZero method
+// Set uses given function f to mock the TypedReceiver.ReceiveZero method
 func (mmReceiveZero *mTypedReceiverMockReceiveZero) Set(f func(k1 reflect.Kind)) *TypedReceiverMock {
 	if mmReceiveZero.defaultExpectation != nil {
 		mmReceiveZero.mock.t.Fatalf("Default expectation is already set for the TypedReceiver.ReceiveZero method")

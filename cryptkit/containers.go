@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/insolar/vanilla/longbits"
+	"github.com/soverenio/vanilla/longbits"
 )
 
 type hFoldReader = longbits.FoldableReader
@@ -227,8 +227,8 @@ var _ SigningKeyHolder = SigningKey{}
 
 type SigningKey struct {
 	hFoldReader
-	method SigningMethod
-	keyType         SigningKeyType
+	method  SigningMethod
+	keyType SigningKeyType
 }
 
 func (p SigningKey) IsEmpty() bool {

@@ -139,7 +139,7 @@ func (mmDigestBytes *mDataDigesterMockDigestBytes) Return(d1 Digest) *DataDigest
 	return mmDigestBytes.mock
 }
 
-//Set uses given function f to mock the DataDigester.DigestBytes method
+// Set uses given function f to mock the DataDigester.DigestBytes method
 func (mmDigestBytes *mDataDigesterMockDigestBytes) Set(f func(ba1 []byte) (d1 Digest)) *DataDigesterMock {
 	if mmDigestBytes.defaultExpectation != nil {
 		mmDigestBytes.mock.t.Fatalf("Default expectation is already set for the DataDigester.DigestBytes method")
@@ -354,7 +354,7 @@ func (mmDigestData *mDataDigesterMockDigestData) Return(d1 Digest) *DataDigester
 	return mmDigestData.mock
 }
 
-//Set uses given function f to mock the DataDigester.DigestData method
+// Set uses given function f to mock the DataDigester.DigestData method
 func (mmDigestData *mDataDigesterMockDigestData) Set(f func(r1 io.Reader) (d1 Digest)) *DataDigesterMock {
 	if mmDigestData.defaultExpectation != nil {
 		mmDigestData.mock.t.Fatalf("Default expectation is already set for the DataDigester.DigestData method")
@@ -554,7 +554,7 @@ func (mmGetDigestMethod *mDataDigesterMockGetDigestMethod) Return(d1 DigestMetho
 	return mmGetDigestMethod.mock
 }
 
-//Set uses given function f to mock the DataDigester.GetDigestMethod method
+// Set uses given function f to mock the DataDigester.GetDigestMethod method
 func (mmGetDigestMethod *mDataDigesterMockGetDigestMethod) Set(f func() (d1 DigestMethod)) *DataDigesterMock {
 	if mmGetDigestMethod.defaultExpectation != nil {
 		mmGetDigestMethod.mock.t.Fatalf("Default expectation is already set for the DataDigester.GetDigestMethod method")
@@ -697,7 +697,7 @@ func (mmGetDigestSize *mDataDigesterMockGetDigestSize) Return(i1 int) *DataDiges
 	return mmGetDigestSize.mock
 }
 
-//Set uses given function f to mock the DataDigester.GetDigestSize method
+// Set uses given function f to mock the DataDigester.GetDigestSize method
 func (mmGetDigestSize *mDataDigesterMockGetDigestSize) Set(f func() (i1 int)) *DataDigesterMock {
 	if mmGetDigestSize.defaultExpectation != nil {
 		mmGetDigestSize.mock.t.Fatalf("Default expectation is already set for the DataDigester.GetDigestSize method")
@@ -840,7 +840,7 @@ func (mmNewHasher *mDataDigesterMockNewHasher) Return(d1 DigestHasher) *DataDige
 	return mmNewHasher.mock
 }
 
-//Set uses given function f to mock the DataDigester.NewHasher method
+// Set uses given function f to mock the DataDigester.NewHasher method
 func (mmNewHasher *mDataDigesterMockNewHasher) Set(f func() (d1 DigestHasher)) *DataDigesterMock {
 	if mmNewHasher.defaultExpectation != nil {
 		mmNewHasher.mock.t.Fatalf("Default expectation is already set for the DataDigester.NewHasher method")

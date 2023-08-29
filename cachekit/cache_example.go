@@ -1,7 +1,7 @@
 package cachekit
 
 import (
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type Key = uint64
@@ -16,12 +16,12 @@ const zeroValue = ""
 	set zeroValue constant in accordance with Value type.
 
 
- */
+*/
 
 func NewUintCache(cs Strategy) *UintCache {
 	c := &UintCache{
-		keys: map[Key]Index{},
-		values: [][]uintEntry { make([]uintEntry, cs.AllocationPageSize()) },
+		keys:   map[Key]Index{},
+		values: [][]uintEntry{make([]uintEntry, cs.AllocationPageSize())},
 	}
 	c.core = NewCore(cs, c.trimBatch)
 
@@ -33,11 +33,11 @@ type UintCache struct {
 	values [][]uintEntry
 	keys   map[Key]Index
 
-	core   Core
+	core Core
 }
 
 type uintEntry struct {
-	key Key
+	key   Key
 	value Value
 }
 
@@ -136,12 +136,12 @@ func (p *UintCache) putEntry(idx Index, entry uintEntry) {
 	if pgN == len(p.values) {
 		p.values = append(p.values, make([]uintEntry, pgSize))
 	}
-	p.values[pgN][idx % pgSize] = entry
+	p.values[pgN][idx%pgSize] = entry
 }
 
 func (p *UintCache) getEntry(idx Index) *uintEntry {
 	pgSize := cap(p.values[0])
-	return &p.values[idx / pgSize][idx % pgSize]
+	return &p.values[idx/pgSize][idx%pgSize]
 }
 
 func (p *UintCache) trimBatch(trimmed []uint32) {
@@ -151,4 +151,3 @@ func (p *UintCache) trimBatch(trimmed []uint32) {
 		*ce = uintEntry{}
 	}
 }
-

@@ -124,7 +124,7 @@ func (mmAsByteString *mFoldableReaderMockAsByteString) Return(b1 ByteString) *Fo
 	return mmAsByteString.mock
 }
 
-//Set uses given function f to mock the FoldableReader.AsByteString method
+// Set uses given function f to mock the FoldableReader.AsByteString method
 func (mmAsByteString *mFoldableReaderMockAsByteString) Set(f func() (b1 ByteString)) *FoldableReaderMock {
 	if mmAsByteString.defaultExpectation != nil {
 		mmAsByteString.mock.t.Fatalf("Default expectation is already set for the FoldableReader.AsByteString method")
@@ -282,7 +282,7 @@ func (mmCopyTo *mFoldableReaderMockCopyTo) Return(i1 int) *FoldableReaderMock {
 	return mmCopyTo.mock
 }
 
-//Set uses given function f to mock the FoldableReader.CopyTo method
+// Set uses given function f to mock the FoldableReader.CopyTo method
 func (mmCopyTo *mFoldableReaderMockCopyTo) Set(f func(p []byte) (i1 int)) *FoldableReaderMock {
 	if mmCopyTo.defaultExpectation != nil {
 		mmCopyTo.mock.t.Fatalf("Default expectation is already set for the FoldableReader.CopyTo method")
@@ -482,7 +482,7 @@ func (mmFixedByteSize *mFoldableReaderMockFixedByteSize) Return(i1 int) *Foldabl
 	return mmFixedByteSize.mock
 }
 
-//Set uses given function f to mock the FoldableReader.FixedByteSize method
+// Set uses given function f to mock the FoldableReader.FixedByteSize method
 func (mmFixedByteSize *mFoldableReaderMockFixedByteSize) Set(f func() (i1 int)) *FoldableReaderMock {
 	if mmFixedByteSize.defaultExpectation != nil {
 		mmFixedByteSize.mock.t.Fatalf("Default expectation is already set for the FoldableReader.FixedByteSize method")
@@ -625,7 +625,7 @@ func (mmFoldToUint64 *mFoldableReaderMockFoldToUint64) Return(u1 uint64) *Foldab
 	return mmFoldToUint64.mock
 }
 
-//Set uses given function f to mock the FoldableReader.FoldToUint64 method
+// Set uses given function f to mock the FoldableReader.FoldToUint64 method
 func (mmFoldToUint64 *mFoldableReaderMockFoldToUint64) Set(f func() (u1 uint64)) *FoldableReaderMock {
 	if mmFoldToUint64.defaultExpectation != nil {
 		mmFoldToUint64.mock.t.Fatalf("Default expectation is already set for the FoldableReader.FoldToUint64 method")
@@ -784,7 +784,7 @@ func (mmWriteTo *mFoldableReaderMockWriteTo) Return(n int64, err error) *Foldabl
 	return mmWriteTo.mock
 }
 
-//Set uses given function f to mock the FoldableReader.WriteTo method
+// Set uses given function f to mock the FoldableReader.WriteTo method
 func (mmWriteTo *mFoldableReaderMockWriteTo) Set(f func(w io.Writer) (n int64, err error)) *FoldableReaderMock {
 	if mmWriteTo.defaultExpectation != nil {
 		mmWriteTo.mock.t.Fatalf("Default expectation is already set for the FoldableReader.WriteTo method")

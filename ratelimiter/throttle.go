@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/insolar/vanilla/atomickit"
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/atomickit"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func NewController(trafficUnit uint32, refillPeriod time.Duration) *Controller {

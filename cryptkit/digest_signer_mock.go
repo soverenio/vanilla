@@ -98,7 +98,7 @@ func (mmGetSigningMethod *mDigestSignerMockGetSigningMethod) Return(s1 SigningMe
 	return mmGetSigningMethod.mock
 }
 
-//Set uses given function f to mock the DigestSigner.GetSigningMethod method
+// Set uses given function f to mock the DigestSigner.GetSigningMethod method
 func (mmGetSigningMethod *mDigestSignerMockGetSigningMethod) Set(f func() (s1 SigningMethod)) *DigestSignerMock {
 	if mmGetSigningMethod.defaultExpectation != nil {
 		mmGetSigningMethod.mock.t.Fatalf("Default expectation is already set for the DigestSigner.GetSigningMethod method")
@@ -256,7 +256,7 @@ func (mmSignDigest *mDigestSignerMockSignDigest) Return(s1 Signature) *DigestSig
 	return mmSignDigest.mock
 }
 
-//Set uses given function f to mock the DigestSigner.SignDigest method
+// Set uses given function f to mock the DigestSigner.SignDigest method
 func (mmSignDigest *mDigestSignerMockSignDigest) Set(f func(digest Digest) (s1 Signature)) *DigestSignerMock {
 	if mmSignDigest.defaultExpectation != nil {
 		mmSignDigest.mock.t.Fatalf("Default expectation is already set for the DigestSigner.SignDigest method")

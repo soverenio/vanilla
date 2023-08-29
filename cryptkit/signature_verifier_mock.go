@@ -126,7 +126,7 @@ func (mmGetDefaultSigningMethod *mSignatureVerifierMockGetDefaultSigningMethod) 
 	return mmGetDefaultSigningMethod.mock
 }
 
-//Set uses given function f to mock the SignatureVerifier.GetDefaultSigningMethod method
+// Set uses given function f to mock the SignatureVerifier.GetDefaultSigningMethod method
 func (mmGetDefaultSigningMethod *mSignatureVerifierMockGetDefaultSigningMethod) Set(f func() (s1 SigningMethod)) *SignatureVerifierMock {
 	if mmGetDefaultSigningMethod.defaultExpectation != nil {
 		mmGetDefaultSigningMethod.mock.t.Fatalf("Default expectation is already set for the SignatureVerifier.GetDefaultSigningMethod method")
@@ -284,7 +284,7 @@ func (mmIsDigestMethodSupported *mSignatureVerifierMockIsDigestMethodSupported) 
 	return mmIsDigestMethodSupported.mock
 }
 
-//Set uses given function f to mock the SignatureVerifier.IsDigestMethodSupported method
+// Set uses given function f to mock the SignatureVerifier.IsDigestMethodSupported method
 func (mmIsDigestMethodSupported *mSignatureVerifierMockIsDigestMethodSupported) Set(f func(m DigestMethod) (b1 bool)) *SignatureVerifierMock {
 	if mmIsDigestMethodSupported.defaultExpectation != nil {
 		mmIsDigestMethodSupported.mock.t.Fatalf("Default expectation is already set for the SignatureVerifier.IsDigestMethodSupported method")
@@ -499,7 +499,7 @@ func (mmIsSigningMethodSupported *mSignatureVerifierMockIsSigningMethodSupported
 	return mmIsSigningMethodSupported.mock
 }
 
-//Set uses given function f to mock the SignatureVerifier.IsSigningMethodSupported method
+// Set uses given function f to mock the SignatureVerifier.IsSigningMethodSupported method
 func (mmIsSigningMethodSupported *mSignatureVerifierMockIsSigningMethodSupported) Set(f func(m SigningMethod) (b1 bool)) *SignatureVerifierMock {
 	if mmIsSigningMethodSupported.defaultExpectation != nil {
 		mmIsSigningMethodSupported.mock.t.Fatalf("Default expectation is already set for the SignatureVerifier.IsSigningMethodSupported method")
@@ -715,7 +715,7 @@ func (mmIsValidDataSignature *mSignatureVerifierMockIsValidDataSignature) Return
 	return mmIsValidDataSignature.mock
 }
 
-//Set uses given function f to mock the SignatureVerifier.IsValidDataSignature method
+// Set uses given function f to mock the SignatureVerifier.IsValidDataSignature method
 func (mmIsValidDataSignature *mSignatureVerifierMockIsValidDataSignature) Set(f func(data io.Reader, signature SignatureHolder) (b1 bool)) *SignatureVerifierMock {
 	if mmIsValidDataSignature.defaultExpectation != nil {
 		mmIsValidDataSignature.mock.t.Fatalf("Default expectation is already set for the SignatureVerifier.IsValidDataSignature method")
@@ -931,7 +931,7 @@ func (mmIsValidDigestSignature *mSignatureVerifierMockIsValidDigestSignature) Re
 	return mmIsValidDigestSignature.mock
 }
 
-//Set uses given function f to mock the SignatureVerifier.IsValidDigestSignature method
+// Set uses given function f to mock the SignatureVerifier.IsValidDigestSignature method
 func (mmIsValidDigestSignature *mSignatureVerifierMockIsValidDigestSignature) Set(f func(digest DigestHolder, signature SignatureHolder) (b1 bool)) *SignatureVerifierMock {
 	if mmIsValidDigestSignature.defaultExpectation != nil {
 		mmIsValidDigestSignature.mock.t.Fatalf("Default expectation is already set for the SignatureVerifier.IsValidDigestSignature method")

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 /*
@@ -24,7 +24,7 @@ const (
 	//  _Marker		 = illegalUtf8FirstByte | byte(WireBytes)	// 16:bytes
 	//	DO_NOT_USE	 = illegalUtf8FirstByte | byte(WireStartGroup)	// 16:groupStart
 	BinaryMarker = illegalUtf8FirstByte | byte(WireEndGroup) // 16:groupEnd
-//  _Marker		 = illegalUtf8FirstByte | byte(WireFixed32)		// 16:fixed32
+	//  _Marker		 = illegalUtf8FirstByte | byte(WireFixed32)		// 16:fixed32
 )
 
 const PolymorphFieldID = illegalUtf8FirstByte >> WireTypeBits // = 16

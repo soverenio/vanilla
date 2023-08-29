@@ -1,6 +1,6 @@
 package keyset
 
-import "github.com/insolar/vanilla/longbits"
+import "github.com/soverenio/vanilla/longbits"
 
 type Key = longbits.ByteString
 
@@ -19,7 +19,6 @@ type KeyList interface {
 // NB! An immutable inclusive/closed set MUST be able to cast to KeyList & InclusiveKeySet.
 // An open or a mutable KeySet MUST NOT be able to cast to KeyList & InclusiveKeySet.
 // This behavior is supported by this package.
-//
 type KeySet interface {
 	// returns true when this set is empty
 	IsNothing() bool

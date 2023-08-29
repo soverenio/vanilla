@@ -1,7 +1,7 @@
 package ratelimiter
 
 import (
-	"github.com/insolar/vanilla/atomickit"
+	"github.com/soverenio/vanilla/atomickit"
 )
 
 type RateQuota interface {

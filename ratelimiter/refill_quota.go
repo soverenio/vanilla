@@ -1,8 +1,8 @@
 package ratelimiter
 
 import (
-	"github.com/insolar/vanilla/atomickit"
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/atomickit"
+	"github.com/soverenio/vanilla/throw"
 )
 
 type RefillQuota struct {

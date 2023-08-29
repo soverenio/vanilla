@@ -3,7 +3,7 @@ package cachekit
 import (
 	"math"
 
-	"github.com/insolar/vanilla/throw"
+	"github.com/soverenio/vanilla/throw"
 )
 
 func newAllocationTracker(pageSize int) allocationTracker {
@@ -11,7 +11,7 @@ func newAllocationTracker(pageSize int) allocationTracker {
 		panic(throw.IllegalValue())
 	}
 	return allocationTracker{
-		pages:   []allocPage{ make(allocPage, 0, pageSize) },
+		pages:   []allocPage{make(allocPage, 0, pageSize)},
 		freeIdx: math.MinInt32,
 	}
 }
@@ -45,7 +45,7 @@ func (p *allocationTracker) Add(value int32) int {
 	}
 
 	*pg = append(*pg, value)
-	return pgN * pgSize + n
+	return pgN*pgSize + n
 }
 
 func (p *allocationTracker) get(index int) *int32 {
@@ -60,7 +60,6 @@ func (p *allocationTracker) get(index int) *int32 {
 	}
 	return &p.pages[pgN][n]
 }
-
 
 func (p *allocationTracker) AllocatedCount() int {
 	n := len(p.pages)
@@ -79,7 +78,7 @@ func (p *allocationTracker) Count() int {
 	pgSize := cap(p.pages[0])
 	pgN--
 
-	return pgN * pgSize + len(p.pages[pgN]) - int(p.freeCnt)
+	return pgN*pgSize + len(p.pages[pgN]) - int(p.freeCnt)
 }
 
 func (p *allocationTracker) Get(index int) (int32, bool) {
@@ -175,7 +174,7 @@ func (p *allocationTracker) reuse(value int32) int {
 		panic(throw.Impossible())
 	}
 
-	n := -int(free)-1
+	n := -int(free) - 1
 	switch vi := p.get(n); {
 	case vi == nil:
 		panic(throw.Impossible())

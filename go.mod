@@ -1,4 +1,4 @@
-module github.com/insolar/vanilla
+module github.com/soverenio/vanilla
 
 go 1.15
 
