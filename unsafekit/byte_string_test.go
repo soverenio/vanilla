@@ -44,10 +44,10 @@ func TestRetentionByByteString(t *testing.T) {
 	tp := (*testPtr)(shd)
 	require.Equal(t, byte('A'), tp[0])
 	require.Equal(t, byte('B'), tp[1])
-	tp = nil
+	tp = nil //nolint:ineffassign // ineffectual assignment to tp
 	require.Equal(t, byte('A'), w[0])
 	require.Equal(t, byte('B'), w[1])
-	w = ""
+	w = "" //nolint:ineffassign // ineffectual assignment to w
 
 	runtime.GC()
 	time.Sleep(100 * time.Millisecond)
@@ -74,7 +74,7 @@ func TestRetentionBySlice(t *testing.T) {
 	sh.Len = len(*bb)
 	sh.Cap = len(*bb)
 	sh = nil
-	bb = nil
+	bb = nil //nolint:ineffassign // ineffectual assignment to bb
 
 	runtime.GC()
 	time.Sleep(100 * time.Millisecond)

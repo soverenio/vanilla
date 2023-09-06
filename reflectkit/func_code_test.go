@@ -21,8 +21,7 @@ func TestCodeOf(t *testing.T) {
 	require.Equal(t, reflect.ValueOf(v).Pointer(), CodeOf(v))
 	require.NotEqual(t, reflect.ValueOf(v).Pointer(), CodeOf(TestCodeOf))
 
-	var vi io.Writer
-	vi = bytes.NewBufferString("abc")
+	vi := bytes.NewBufferString("abc")
 	v = vi.Write
 	require.Equal(t, reflect.ValueOf(v).Pointer(), CodeOf(v))
 	require.NotEqual(t, reflect.ValueOf(v).Pointer(), CodeOf(TestCodeOf))

@@ -1,0 +1,39 @@
+version: 2
+mergeable:
+  - when: schedule.repository
+    validate:
+      - do: stale
+        days: 30
+        type: pull_request
+    pass:
+      - do: comment
+        payload:
+          body: 'This pull request is old. Please consider merging or closing it.'
+
+  - when: pull_request.*, pull_request_review.*
+    validate:
+      - do: title
+        and:
+          - must_exclude:
+              regex: '\bWIP\b'
+          - or:
+            - must_include:
+                regex: '^([A-Z][A-Z]+-\d+|NOISSUE|HOTFIX):'
+                regex_flag: none
+            - must_include:
+                regex: '^Bump .+ from .+ to'
+                regex_flag: none
+      - do: label
+        must_exclude:
+          regex: '^WIP$'
+          message: 'This PR is marked as work-in-progress and cannot be merged.'
+      - do: approvals
+        min:
+          count: 1
+          message: 'A minimum of 1 approval required.'
+        required:
+          assignees: true
+          message: 'All assignees must approve this PR before merging.'
+        block:
+          changes_requested: true
+          message: 'Merge is blocked, changes requested.'

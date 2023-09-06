@@ -93,7 +93,7 @@ func TestBinaryMarshalToSizedBuffer(t *testing.T) {
 	n, err = BinaryMarshalToSizedBuffer(b[:], false, func(b []byte) (int, error) {
 		return 3, nil
 	})
-	require.Error(t, io.ErrShortBuffer)
+	require.ErrorIs(t, err, io.ErrShortBuffer)
 	require.Zero(t, n)
 }
 

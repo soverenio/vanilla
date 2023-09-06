@@ -71,9 +71,7 @@ func runBoolTest(t *testing.T, genFn keySetGeneratorFunc, testFn func(KeySet, Ke
 
 func runSomeTest(t *testing.T, genFn keySetGeneratorFunc, testFn func(*testing.T, KeySet, uint)) {
 	name := methodName(testFn)
-	if strings.HasPrefix(name, "test") {
-		name = name[4:]
-	}
+	name = strings.TrimPrefix(name, "test")
 	t.Run(name, func(t *testing.T) {
 		for ksi, ti := genFn(); ksi != nil; ksi, ti = genFn() {
 			testFn(t, ksi, ti)
@@ -89,9 +87,7 @@ func runMSetTest(t *testing.T, genFactoryFn func() mutableGeneratorFunc, testFn 
 
 func runMSomeTest(t *testing.T, genFn mutableGeneratorFunc, testFn func(*testing.T, *MutableKeySet, uint)) {
 	name := methodName(testFn)
-	if strings.HasPrefix(name, "test") {
-		name = name[4:]
-	}
+	name = strings.TrimPrefix(name, "test")
 	t.Run(name, func(t *testing.T) {
 		for ksi, ti := genFn(); ksi != nil; ksi, ti = genFn() {
 			testFn(t, ksi, ti)

@@ -78,6 +78,7 @@ func (p *SignalVersion) signal() {
 	}
 	p.next.signal() // older signals must fire first
 
+	// nolint:gosimple // S1021: should merge variable declaration with assignment on next line
 	var closedSignal *SignalChannel // explicit type decl to avoid passing of something wrong into unsafe.Pointer conversion
 	closedSignal = &closedChan
 
