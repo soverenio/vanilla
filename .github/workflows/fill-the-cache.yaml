@@ -1,0 +1,27 @@
+name: fill-the-cache
+on:
+  push:
+    branches:
+      - master
+env:
+  GO_VERSION: "1.20"
+  GOPROXY: ${{ secrets.GO_CACHE_URL }}
+  GOPRIVATE: github.com/soverenio
+jobs:
+  fill-the-cache:
+    name: fill-the-cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: set access token
+        run: git config --global url."https://${{secrets.SVRN_SERVICE_PAT}}@github.com/soverenio/".insteadOf "https://github.com/soverenio/"
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up go ${{ env.GO_VERSION }}
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Fill the cache
+        run: go mod download

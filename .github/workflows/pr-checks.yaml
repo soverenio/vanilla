@@ -1,0 +1,39 @@
+name: pr-checks # checks that should be executed only on pull requests
+on:
+  pull_request:
+env:
+  GO_VERSION: "1.20"
+jobs:
+  pre-build-check:
+    name: pre-build-check # don't change, this name is used in repository restricts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up go ${{env.GO_VERSION}}
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{env.GO_VERSION}}
+      - name: Run golangci-lint
+        if: always()
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: latest
+          skip-pkg-cache: true
+          skip-build-cache: true
+          only-new-issues: true
+  checks:
+    name: checks # don't change, this name is used in repository restricts!
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up go ${{env.GO_VERSION}}
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{env.GO_VERSION}}
+      - name: Run all tests
+        run: |
+          make test
+        continue-on-error: false
+
