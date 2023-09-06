@@ -1,4 +1,4 @@
-package aeshash
+package aeshash // nolint
 
 import (
 	"reflect"

@@ -259,7 +259,7 @@ func TestIsVerifiableBy(t *testing.T) {
 	sd := NewSignedDigest(Digest{}, Signature{})
 	sv := NewSignatureVerifierMock(t)
 	supported := false
-	sv.IsSigningMethodSupportedMock.Set(func(SigningMethod) bool { return *(&supported) })
+	sv.IsSigningMethodSupportedMock.Set(func(SigningMethod) bool { return supported })
 	require.False(t, sd.IsVerifiableBy(sv))
 
 	supported = true
@@ -270,7 +270,7 @@ func TestVerifyWith(t *testing.T) {
 	sd := NewSignedDigest(Digest{}, Signature{})
 	sv := NewSignatureVerifierMock(t)
 	valid := false
-	sv.IsValidDigestSignatureMock.Set(func(DigestHolder, SignatureHolder) bool { return *(&valid) })
+	sv.IsValidDigestSignatureMock.Set(func(DigestHolder, SignatureHolder) bool { return valid })
 	require.False(t, sd.VerifyWith(sv))
 
 	valid = true
