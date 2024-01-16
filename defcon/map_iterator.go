@@ -3,9 +3,10 @@ package defcon
 import (
 	"reflect"
 
+	"golang.org/x/exp/slices"
+
 	"github.com/soverenio/vanilla/throw"
 	"github.com/soverenio/vanilla/zero"
-	"golang.org/x/exp/slices"
 )
 
 type MapIterator[K comparable, V any] interface {
@@ -266,7 +267,17 @@ func IteratorFromMap[K comparable, V any](inp map[K]V, less func(K, K) bool) Map
 		for key := range inp {
 			keys = append(keys, key)
 		}
-		slices.SortFunc(keys, less)
+		
+		slices.SortFunc(keys, func(a, b K) int {
+			switch {
+			case less(a, b):
+				return -1
+			case less(b, a):
+				return 1
+			default:
+				return 0
+			}
+		})
 
 		pos := 0
 

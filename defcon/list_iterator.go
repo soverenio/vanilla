@@ -5,9 +5,10 @@ package defcon
 import (
 	"reflect"
 
+	"golang.org/x/exp/slices"
+
 	"github.com/soverenio/vanilla/throw"
 	"github.com/soverenio/vanilla/zero"
-	"golang.org/x/exp/slices"
 )
 
 type ListIterator[E any] interface {
@@ -128,7 +129,16 @@ func (l *listIterator[E]) Sort(less func(E, E) bool) ListIterator[E] {
 		sorted = append(sorted, e)
 	}
 
-	slices.SortFunc(sorted, less)
+	slices.SortFunc(sorted, func(a, b E) int {
+		switch {
+		case less(a, b):
+			return -1
+		case less(b, a):
+			return 1
+		default:
+			return 0
+		}
+	})
 	return IteratorFromList[E](sorted)
 }
 
