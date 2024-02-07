@@ -1,6 +1,6 @@
 module github.com/soverenio/vanilla
 
-go 1.20
+go 1.21
 
 require (
 	github.com/gojuno/minimock/v3 v3.1.3
