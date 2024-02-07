@@ -2,8 +2,7 @@ package defcon
 
 import (
 	"reflect"
-
-	"golang.org/x/exp/slices"
+	"slices"
 
 	"github.com/soverenio/vanilla/throw"
 	"github.com/soverenio/vanilla/zero"
@@ -267,7 +266,7 @@ func IteratorFromMap[K comparable, V any](inp map[K]V, less func(K, K) bool) Map
 		for key := range inp {
 			keys = append(keys, key)
 		}
-		
+
 		slices.SortFunc(keys, func(a, b K) int {
 			switch {
 			case less(a, b):

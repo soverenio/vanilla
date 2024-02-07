@@ -251,11 +251,33 @@ func (c *cache[K, V]) DeleteExpired() {
 // OnDeletion sets an (optional) function that is called with the key and value when an
 // item is evicted from the cache. (Including when it is deleted manually, but  not when
 // it is overwritten). Set to nil to disable.
+// Deprecated
 func (c *cache[K, V]) OnDeletion(f func(K, V, OnDeletionStatus)) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
 	c.onDeletion = f
+}
+
+// OnDeletionAppend appends or sets an (optional) function that is called with the key and value when an
+// item is evicted from the cache. (Including when it is deleted manually, but  not when
+// it is overwritten). Use f == nil to disable.
+func (c *cache[K, V]) OnDeletionAppend(f func(K, V, OnDeletionStatus)) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	switch {
+	case f == nil: // disabling
+		c.onDeletion = nil
+	case c.onDeletion != nil: // append callback
+		oldOnDeletion := c.onDeletion
+		c.onDeletion = func(k K, v V, status OnDeletionStatus) {
+			f(k, v, status)
+			oldOnDeletion(k, v, status)
+		}
+	default: // set first callback
+		c.onDeletion = f
+	}
 }
 
 // ItemList copies all unexpired items in the cache into a new map and returns it.

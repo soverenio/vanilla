@@ -4,8 +4,7 @@ package defcon
 
 import (
 	"reflect"
-
-	"golang.org/x/exp/slices"
+	"slices"
 
 	"github.com/soverenio/vanilla/throw"
 	"github.com/soverenio/vanilla/zero"

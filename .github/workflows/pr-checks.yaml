@@ -2,7 +2,7 @@ name: pr-checks # checks that should be executed only on pull requests
 on:
   pull_request:
 env:
-  GO_VERSION: "1.20"
+  GO_VERSION: "1.21"
 jobs:
   pre-build-check:
     name: pre-build-check # don't change, this name is used in repository restricts
