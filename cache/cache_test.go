@@ -127,6 +127,81 @@ func TestOnEvicted(t *testing.T) {
 	assert.Equal(t, 4, x)
 }
 
+func TestGetWithExpiration(t *testing.T) {
+	tc := New[string, float64](time.Second, 0)
+	defer tc.Stop()
+
+	a, expiration, found := tc.GetWithExpiration("a")
+	assert.False(t, found)
+	assert.EqualValues(t, 0, a)
+	assert.True(t, expiration.IsZero())
+
+	b, expiration, found := tc.GetWithExpiration("d")
+	assert.False(t, found)
+	assert.EqualValues(t, 0, b)
+	assert.True(t, expiration.IsZero())
+
+	c, expiration, found := tc.GetWithExpiration("e")
+	assert.False(t, found)
+	assert.EqualValues(t, 0, c)
+	assert.True(t, expiration.IsZero())
+
+	tc.Set("a", 1, DefaultExpiration)
+	tc.Set("d", 1, NoExpiration)
+	tc.Set("e", 1, 50*time.Millisecond)
+
+	x, expiration, found := tc.GetWithExpiration("a")
+	assert.True(t, found)
+	assert.EqualValues(t, 1, x)
+	assert.False(t, expiration.IsZero())
+
+	x, expiration, found = tc.GetWithExpiration("d")
+	assert.True(t, found)
+	assert.EqualValues(t, 1, x)
+	assert.True(t, expiration.IsZero())
+
+	x, expiration, found = tc.GetWithExpiration("e")
+	assert.True(t, found)
+	assert.EqualValues(t, 1, x)
+	assert.False(t, expiration.IsZero())
+	assert.Equal(t, tc.items["e"].Expiration, expiration)
+	assert.True(t, time.Now().Before(expiration))
+}
+
+func TestGetOrInsert(t *testing.T) {
+
+	t.Run("should return found item", func(t *testing.T) {
+		tc := New[string, string](time.Second, time.Minute)
+		defer tc.Stop()
+
+		tc.Set("foo", "bar", DefaultExpiration)
+		x, found := tc.GetOrInsert("foo", "baz", DefaultExpiration)
+		assert.True(t, found)
+		assert.Equal(t, "bar", x)
+	})
+
+	t.Run("should delete expired item and insert new one", func(t *testing.T) {
+		tc := New[string, string](50*time.Millisecond, time.Minute)
+		defer tc.Stop()
+
+		tc.Set("foo", "bar", DefaultExpiration)
+		<-time.After(100 * time.Millisecond) // wait for expiration
+
+		x, found := tc.GetOrInsert("foo", "baz", DefaultExpiration)
+		assert.False(t, found)
+		assert.Equal(t, "baz", x)
+	})
+
+	t.Run("should insert new item", func(t *testing.T) {
+		tc := New[string, string](time.Second, time.Minute)
+		defer tc.Stop()
+
+		x, found := tc.GetOrInsert("foo", "baz", DefaultExpiration)
+		assert.False(t, found)
+		assert.Equal(t, "baz", x)
+	})
+}
+
 func BenchmarkCacheGetExpiring(b *testing.B) {
 	benchmarkCacheGet(b, 5*time.Minute)
 }
@@ -382,45 +457,4 @@ func BenchmarkDeleteExpiredLoop(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		tc.DeleteExpired()
 	}
-}
-
-func TestGetWithExpiration(t *testing.T) {
-	tc := New[string, float64](time.Second, 0)
-	defer tc.Stop()
-
-	a, expiration, found := tc.GetWithExpiration("a")
-	assert.False(t, found)
-	assert.EqualValues(t, 0, a)
-	assert.True(t, expiration.IsZero())
-
-	b, expiration, found := tc.GetWithExpiration("d")
-	assert.False(t, found)
-	assert.EqualValues(t, 0, b)
-	assert.True(t, expiration.IsZero())
-
-	c, expiration, found := tc.GetWithExpiration("e")
-	assert.False(t, found)
-	assert.EqualValues(t, 0, c)
-	assert.True(t, expiration.IsZero())
-
-	tc.Set("a", 1, DefaultExpiration)
-	tc.Set("d", 1, NoExpiration)
-	tc.Set("e", 1, 50*time.Millisecond)
-
-	x, expiration, found := tc.GetWithExpiration("a")
-	assert.True(t, found)
-	assert.EqualValues(t, 1, x)
-	assert.False(t, expiration.IsZero())
-
-	x, expiration, found = tc.GetWithExpiration("d")
-	assert.True(t, found)
-	assert.EqualValues(t, 1, x)
-	assert.True(t, expiration.IsZero())
-
-	x, expiration, found = tc.GetWithExpiration("e")
-	assert.True(t, found)
-	assert.EqualValues(t, 1, x)
-	assert.False(t, expiration.IsZero())
-	assert.Equal(t, tc.items["e"].Expiration, expiration)
-	assert.True(t, time.Now().Before(expiration))
 }
