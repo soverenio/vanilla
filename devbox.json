@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "go@1.22",
+    "golangci-lint@latest",
+    "gotestsum@1.11.0"
+  ],
+  "env": {
+    "GOPATH": "$PWD/.go",
+    "GOROOT": "$PWD/.devbox/nix/profile/default/share/go/",
+    "GOPRIVATE": "github.com/insolar,github.com/soverenio",
+    "GOTEST": "gotestsum --format dots --",
+    "PATH": "$PWD/.go/bin:$PATH"
+  },
+  "shell": {
+    "init_hook": [
+      "make init-devbox || true"
+    ]
+  }
+}

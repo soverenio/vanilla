@@ -137,6 +137,8 @@ func (c *cache[K, V]) Replace(k K, x V, d time.Duration) error {
 
 // Get an item from the cache. Returns the item or nil, and a bool indicating
 // whether the key was found.
+// Method doesn't return or clean up expired item. You should explicitly call DeleteExpired() or Delete(k) to clean up
+// expired items, or GetOrInsert() or use cache.janitor.
 func (c *cache[K, V]) Get(k K) (V, bool) {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
@@ -150,6 +152,8 @@ func (c *cache[K, V]) Get(k K) (V, bool) {
 
 // GetWithTouch gets an item from the cache and update its expiration time. Returns the item or nil, and a bool indicating
 // whether the key was found.
+// Method doesn't return or clean up expired item. You should explicitly call DeleteExpired() or Delete(k) to clean up
+// expired items, or GetOrInsert() or use cache.janitor.
 func (c *cache[K, V]) GetWithTouch(k K, d time.Duration) (V, bool) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
@@ -168,6 +172,8 @@ func (c *cache[K, V]) GetWithTouch(k K, d time.Duration) (V, bool) {
 // It returns the item or nil, the expiration time if one is set (if the item
 // never expires a zero value for time.Time is returned), and a bool indicating
 // whether the key was found.
+// Method doesn't return or clean up expired item. You should explicitly call DeleteExpired() or Delete(k) to clean up
+// expired items, or GetOrInsert() or use cache.janitor.
 func (c *cache[K, V]) GetWithExpiration(k K) (V, time.Time, bool) {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
@@ -182,6 +188,39 @@ func (c *cache[K, V]) GetWithExpiration(k K) (V, time.Time, bool) {
 		return zero.Zero[V](), time.Time{}, false
 	}
 	return item.Object, item.Expiration, true
+}
+
+// GetOrInsert gets existing item or, otherwise, insert new one in atomic way.
+// Returns the item or nil, and a bool indicating whether the key was found.
+// If found item is expired, it will be immediately deleted with `onDeletion` propagation before inserting new value.
+func (c *cache[K, V]) GetOrInsert(k K, insertV V, insertD time.Duration) (res V, found bool) {
+	var evictedItem *keyAndValue[K, V]
+
+	c.mu.RLock()
+	defer func() {
+		c.mu.RUnlock()
+		// Out of lock scope
+		if evictedItem != nil {
+			c.onDeletion(evictedItem.key, evictedItem.value, OnDeletionStatusEvicted)
+		}
+	}()
+
+	item, found := c.items[k]
+	switch {
+	case !found:
+		c.set(k, insertV, insertD)
+		return insertV, false
+
+	case item.Expired():
+		v, _, evicted := c.delete(k)
+		if evicted {
+			evictedItem = &keyAndValue[K, V]{k, v}
+		}
+		c.set(k, insertV, insertD)
+		return insertV, false
+	}
+
+	return item.Object, true
 }
 
 func (c *cache[K, V]) get(k K) (V, bool) {
@@ -209,7 +248,7 @@ func (c *cache[K, V]) Delete(k K) bool {
 	return deleted
 }
 
-func (c *cache[K, V]) delete(key K) (V, bool, bool) {
+func (c *cache[K, V]) delete(key K) (v V, deleted bool, evicted bool) {
 	switch v, found := c.items[key]; {
 	case !found:
 		return zero.Zero[V](), false, false

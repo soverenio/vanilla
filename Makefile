@@ -14,3 +14,7 @@ lint: ## CI lint
 .PHONY: test
 test:
 	GOARCH=$(GOARCHFORCED) $(GOTEST) ./... -count $(TEST_COUNT) -race $(TEST_ARGS)
+
+.PHONY: init-devbox
+init-devbox:
+	go mod tidy
