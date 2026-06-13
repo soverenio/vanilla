@@ -1,8 +1,6 @@
 name: fill-the-cache
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 env:
   GO_VERSION: "1.21"
   GOPROXY: ${{ secrets.GO_CACHE_URL }}
@@ -10,10 +8,11 @@ env:
 jobs:
   fill-the-cache:
     name: fill-the-cache
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - name: set access token
-        run: git config --global url."https://${{secrets.SVRN_SERVICE_PAT}}@github.com/soverenio/".insteadOf "https://github.com/soverenio/"
+        run: git config --global url."https://${{secrets.SERVICE_PAT}}@github.com/soverenio/".insteadOf "https://github.com/soverenio/"
 
       - name: Checkout code
         uses: actions/checkout@v3
